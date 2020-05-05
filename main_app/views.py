@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Horse
+from .forms import FeedingForm
 
 
 # Create your views here.
@@ -17,11 +18,21 @@ def horses_index(request):
     'horses': horses, 
   })
 
-def horses_detail(request, horse_id):
-  horse = Horse.objects.get(id=horse_id)
-  return render(request, 'horses/horses_detail.html', { 
-    'horse': horse 
+def horse_detail(request, pk):
+  horse = Horse.objects.get(id=pk)
+  feeding_form = FeedingForm()
+  return render(request, 'main_app/horse_detail.html', { 
+    'horse': horse,
+    'feeding_form': feeding_form 
   })
+
+def add_feeding(request, pk):
+  form = FeedingForm(request.POST)
+  if form.is_valid():
+    new_feeding = form.save(commit=False)
+    new_feeding.horse_id = pk
+    new_feeding.save()
+  return redirect('horses_detail', pk=pk)
 
 class HorseList(ListView):
   model = Horse
