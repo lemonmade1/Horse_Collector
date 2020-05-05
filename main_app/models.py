@@ -19,17 +19,13 @@ class Horse(models.Model):
     return self.name
 
   def get_absolute_url(self):
-    return reverse('horses_detail', kwargs={'pk': self.id})
+    return reverse('detail', kwargs={'horse_id': self.id})
 
 class Feeding(models.Model):
-  date = models.DateField()
+  date = models.DateField('Feeding Date')
   meal = models.CharField(
     max_length=1,
-
-    # add the 'choices' field option
     choices=MEALS,
-
-    # set the default value for meal to be 'B'
     default=MEALS[0][0],
   )
 
