@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +13,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
+
 <body>
 
   <header class="navbar-fixed">
@@ -21,8 +23,9 @@
           <li><a href="/" class="left brand-logo">&nbsp;&nbsp;HorseCollector</a></li>
         </ul>
         <ul class="right">
-          <li><a href="/about/">About</a></li>
-          <li><a href="/horses/">View All My Horses</a></li>
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'horses_create' %}">Add a Horse</a></li>
+          <li><a href="{% url 'index' %}">View All My Horses</a></li>
         </ul>
       </div>
     </nav>
@@ -39,4 +42,5 @@
   </footer>
 
 </body>
+
 </html>
