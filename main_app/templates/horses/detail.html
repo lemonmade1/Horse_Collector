@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Horse Details</h1>
+
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">{{ horse.name }}</span>
+    <p>Breed: {{ horse.breed }}</p>
+    <p>Description: {{ horse.description }}</p>
+    {% if horse.age > 0 %}
+      <p>Age: {{ horse.age }}</p>
+    {% else %}
+      <p>Age: Filly/Foal</p>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}
