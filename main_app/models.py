@@ -12,4 +12,4 @@ class Horse(models.Model):
     return self.name
 
   def get_absolute_url(self):
-    return reverse('detail', kwargs={'horse_id': self.id})
+    return reverse('horses_detail', kwargs={'pk': self.id})

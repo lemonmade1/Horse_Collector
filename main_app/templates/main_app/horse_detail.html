@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Horses Details</h1>
+
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">{{ horse.name }}</span>
+    <p>Breed: {{ horse.breed }}</p>
+    <p>Description: {{ horse.description }}</p>
+    {% if horse.age > 0 %}
+      <p>Age: {{ horse.age }}</p>
+    {% else %}
+      <p>Age: Filly/Fole</p>
+    {% endif %}
+  </div>
+
+  <div class="card-action">
+    <a href="{% url 'horses_update' horse.id %}">Edit</a>
+    <a href="{% url 'horses_delete' horse.id %}">Delete</a>
+  </div>
+</div>
+
+{% endblock %}
