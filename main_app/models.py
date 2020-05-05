@@ -1,7 +1,7 @@
 from django.db import models
 from django.urls import reverse
 
-# A tuple of 2-tuples
+
 MEALS = (
   ('B', 'Breakfast'),
   ('L', 'Lunch'),
