@@ -34,14 +34,16 @@ def add_feeding(request, pk):
     new_feeding.save()
   return redirect('horses_detail', pk=pk)
 
+
+
 class HorseList(ListView):
   model = Horse
 
   def get_queryset(self):
     return Horse.objects.all()
 
-class HorseDetail(DetailView):
-  model = Horse
+# class HorseDetail(DetailView):
+#   model = Horse
 
 class HorseCreate(CreateView):
   model = Horse
