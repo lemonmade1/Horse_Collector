@@ -10,7 +10,7 @@
   <title>Horse Collector</title>
 
   <!-- CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'custom_materialize/css/custom_materialize.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 
   <!-- JAVASCRIPT -->
@@ -26,9 +26,18 @@
           <li><a href="/" class="left brand-logo">&nbsp;&nbsp;HorseCollector</a></li>
         </ul>
         <ul class="right">
-          <li><a href="{% url 'about' %}">About</a></li>
+          {% if user.is_authenticated %}
+          <li><span class="red-text">Hello {{ user.username }}</span></li>
+          <li><a href="{% url 'toys_create' %}">Add a Toy</a></li>
+          <li><a href="{% url 'toys_index' %}">View All Toys</a></li>
           <li><a href="{% url 'horses_create' %}">Add a Horse</a></li>
-          <li><a href="{% url 'horses_index' %}">View All My Horses</a></li>
+          <li><a href="{% url 'index' %}">View All My Horses</a></li>
+          <li><a href="{% url 'logout' %}">Log Out</a></li>
+          {% else %}
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'signup' %}">Sign Up</a></li>
+          <li><a href="{% url 'login' %}">Log In</a></li>
+          {% endif %}
         </ul>
       </div>
     </nav>
@@ -45,4 +54,5 @@
   </footer>
 
 </body>
+
 </html>

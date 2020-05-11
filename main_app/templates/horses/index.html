@@ -1,4 +1,4 @@
-{% extends '../base.html' %}
+{% extends 'base.html' %}
 {% block content %}
 
 <h1>Horse List</h1>
@@ -6,7 +6,7 @@
 {% for horse in horses %}
   <div class="card">
     <div class="card-content">
-      <a href="/horses/{{ horse.id }}">
+      <a href="{% url 'detail' horse.id %}">
         <span class="card-title">{{ horse.name }}</span>
       </a>
       <p>Breed: {{ horse.breed }}</p>

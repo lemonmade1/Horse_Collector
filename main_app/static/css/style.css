@@ -4,8 +4,20 @@ body {
   flex-direction: column;
 }
 
+nav {
+  color: #fff;
+  background-color: teal !important;
+  width: 100%;
+  height: 56px;
+  line-height: 56px;
+}
+
 main {
   flex: 1 0 auto;
+}
+
+.red-text {
+  text-shadow: 1px 1px 1px black;
 }
 
 footer.page-footer {
