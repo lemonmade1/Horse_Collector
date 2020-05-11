@@ -2,9 +2,9 @@
 Breeding horses
 
 ## Screenshot(s):
-![Screenshot1](/Users/terrelllemons/Desktop/horse_collector/horse_collector/wire_frames/horse_collector_1.png)
-![Screenshot2](/Users/terrelllemons/Desktop/horse_collector/horse_collector/wire_frames/horse_collector_2.png)
-![Screenshot3](/Users/terrelllemons/Desktop/horse_collector/horse_collector/wire_frames/horse_collector_3.png)
+![Screenshot1](https://github.com/lemonmade1/Horse_Collector/blob/master/wire_frames/horse_collector_1.png)
+![Screenshot2](https://github.com/lemonmade1/Horse_Collector/blob/master/wire_frames/horse_collector_2.png)
+![Screenshot3](https://github.com/lemonmade1/Horse_Collector/blob/master/wire_frames/horse_collector_3.png)
 
 ## Description
   A brief informative description about the Duties, Career Options, and Education & Training of Horse 
@@ -23,4 +23,4 @@ _Materialize_
 - Add photo upload to Comments
  
 ## CREATED BY: 
-Terrell Lemons
+Terrell D Lemons
