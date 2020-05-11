@@ -22,5 +22,5 @@ _Materialize_
 - Add photo upload to Comments
  
 ## CREATED BY: 
-Terrell Lemons
+Terrell D Lemons
 lemonsterrell43@gmail.com
