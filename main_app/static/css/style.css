@@ -1,9 +1,14 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
 }
 
+/* |||||||||||| NAVBAR |||||||||||| */
 nav {
   color: #fff;
   background-color: teal !important;
@@ -12,15 +17,61 @@ nav {
   line-height: 56px;
 }
 
+.red-text.helloWorld {
+  position: absolute;
+  right: 20px;
+  text-shadow: 1px 1px 1px black;
+}
+
+body > header > nav > div:nth-child(2) {
+  background: white;
+  border-bottom: 2px solid teal;
+}
+
+/* |||||||||||| MAIN PAGE |||||||||||| */
 main {
   flex: 1 0 auto;
 }
 
-.red-text {
-  text-shadow: 1px 1px 1px black;
+/* |||||||||||| HOME PAGE |||||||||||| */
+#WHY {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+  margin: -3em auto;
 }
 
+#clydesdales {
+  width: 100%;
+  border: 3px solid;
+}
+
+h1#breed {
+  font-size: 4.2rem;
+  line-height: 110%;
+  margin: 1em 0 .5em;
+}
+
+/* |||||||||||| ABOUT PAGE |||||||||||| */
+#horseAndWoman {
+  width: 100%;
+}
+
+/* |||||||||||||| FOOTER |||||||||||||| */
 footer.page-footer {
   padding-top: 0;
   text-align: right;
+  position: fixed;
+  bottom: 0em;
+  width: 100%;
+}
+
+/* |||||||||||| MEDIA QUERY |||||||||||| */
+@media only screen and (max-width: 635px) {
+  .container {
+    margin: -3em auto;
+  }
 }

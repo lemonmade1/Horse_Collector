@@ -3436,9 +3436,9 @@ table span.badge {
 }
 
 @media only screen and (min-width: 601px) {
-  .container {
+  /* .container {
     width: 85%;
-  }
+  } */
 }
 
 @media only screen and (min-width: 993px) {
@@ -4464,7 +4464,7 @@ nav .input-field label.active i {
 
 .navbar-fixed {
   position: relative;
-  height: 56px;
+  height: 170px;
   z-index: 997;
 }
 
@@ -4474,14 +4474,14 @@ nav .input-field label.active i {
 
 @media only screen and (min-width: 601px) {
   nav.nav-extended .nav-wrapper {
-    min-height: 64px;
+    min-height: 120px;
   }
   nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
-    height: 64px;
-    line-height: 64px;
+    height: 120px;
+    line-height: 120px;
   }
   .navbar-fixed {
-    height: 64px;
+    height: 120px;
   }
 }
 

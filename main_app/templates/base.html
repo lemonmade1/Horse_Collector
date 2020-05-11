@@ -23,11 +23,19 @@
     <nav>
       <div class="nav-wrapper">
         <ul>
-          <li><a href="/" class="left brand-logo">&nbsp;&nbsp;HorseCollector</a></li>
-        </ul>
+          <li>
+            <a href="/" class="left brand-logo">&nbsp;&nbsp;HorseCollector</a>
+          </li>
+          <li>
+            <span class="red-text helloWorld">Hello {{ user.username }}</span>           
+          </li>
+        </ul>        
+      </div>
+      <div class="nav-wrapper">
         <ul class="right">
           {% if user.is_authenticated %}
-          <li><span class="red-text">Hello {{ user.username }}</span></li>
+          <!-- <li><span class="red-text">Hello {{ user.username }}</span></li> -->
+          <li><a href="{% url 'about' %}">About</a></li>
           <li><a href="{% url 'toys_create' %}">Add a Toy</a></li>
           <li><a href="{% url 'toys_index' %}">View All Toys</a></li>
           <li><a href="{% url 'horses_create' %}">Add a Horse</a></li>
