@@ -23,4 +23,4 @@ _Materialize_
  
 ## CREATED BY: 
 Terrell Lemons
-[lemonsterrell43@gmail.com]("my email contact")
+lemonsterrell43@gmail.com
