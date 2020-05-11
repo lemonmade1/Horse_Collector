@@ -91,7 +91,7 @@
     <h5>No Toys :(</h5>
     {% endif %}
   </div>
-  <!-- Available toys will come after this line -->
+
   <div class="col s6">
     <h3>Available Toys</h3>
     {% if toys.count %}
@@ -99,7 +99,7 @@
     <div class="card">
       <div class="card-content">
         <span class="card-title">
-          A <span style="color: {{ toy.color }}">{{ toy.color }}</span> {{ toy.name }}
+          A <span style="color:{{ toy.color }}">{{ toy.color }}</span> {{ toy.name }}
         </span>
       </div>
       <div class="card-action">
@@ -116,10 +116,7 @@
   </div>
 </div>
 
-
-
 <script>
-  // create a datepicker
   const dateEl = document.getElementById('id_date');
   M.Datepicker.init(dateEl, {
     format: 'yyyy-mm-dd',
@@ -127,7 +124,7 @@
     setDefaultDate: true,
     autoClose: true
   });
-  // initialize the meal select
+
   const selectEl = document.getElementById('id_meal');
   M.FormSelect.init(selectEl);
 </script>
