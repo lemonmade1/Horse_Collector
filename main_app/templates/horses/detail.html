@@ -11,9 +11,9 @@
         <p>Breed: {{ horse.breed }}</p>
         <p>Description: {{ horse.description }}</p>
         {% if horse.age > 0 %}
-          <p>Age: {{ horse.age }}</p>
+        <p>Age: {{ horse.age }}</p>
         {% else %}
-          <p>Age: Filly/Colt</p>
+        <p>Age: Filly/Colt</p>
         {% endif %}
       </div>
       <div class="card-action">
@@ -21,9 +21,21 @@
         <a href="{% url 'horses_delete' horse.id %}">Delete</a>
       </div>
     </div>
-  </div>
-  <div class="col s6">
 
+    {% for photo in horse.photo_set.all %}
+    <img class="responsive-img card-panel" src="{{ photo.url }}">
+    {% empty %}
+    <div class="card-panel teal-text center-align">No Photos Uploaded</div>
+    {% endfor %}
+    <form action="{% url 'add_photo' horse.id %}" enctype="multipart/form-data" method="POST" class="card-panel">
+      {% csrf_token %}
+      <input type="file" name="photo-file">
+      <br><br>
+      <input type="submit" class="btn" value="Upload Photo">
+    </form>
+  </div>
+
+  <div class="col s6">
     <form action="{% url 'add_feeding' horse.id %}" method="post">
       {% csrf_token %}
       {{ feeding_form.as_p }}
@@ -31,9 +43,9 @@
     </form>
     <br>
     {% if horse.fed_for_today %}
-      <div class="card-panel teal-text center-align">{{horse.name}} has been fed all meals for today</div>
+    <div class="card-panel teal-text center-align">{{horse.name}} has been fed all meals for today</div>
     {% else %}
-      <div class="card-panel red-text center-align">{{horse.name}} might be hungry</div>
+    <div class="card-panel red-text center-align">{{horse.name}} might be hungry</div>
     {% endif %}
 
     <table class="striped">
@@ -45,10 +57,10 @@
       </thead>
       <tbody>
         {% for feeding in horse.feeding_set.all %}
-          <tr>
-            <td>{{feeding.date}}</td>
-            <td>{{feeding.get_meal_display}}</td>
-          </tr>
+        <tr>
+          <td>{{feeding.date}}</td>
+          <td>{{feeding.get_meal_display}}</td>
+        </tr>
         {% endfor %}
       </tbody>
     </table>
@@ -60,46 +72,46 @@
   <div class="col s6">
     <h3>{{ horse.name }}'s Toys</h3>
     {% if horse.toys.count %}
-      {% for toy in horse.toys.all %}
-        <div class="card">
-          <div class="card-content">
-            <span class="card-title">
-              A <span style="color: {{ toy.color }}">{{ toy.color }}</span> {{ toy.name }}
-            </span>
-          </div>
-          <div class="card-action">
-            <form action="{% url 'unassoc_toy' horse.id toy.id %}" method="post">
-                {% csrf_token %}
-              <button type="submit" class="btn">Remove</button>
-            </form>
-          </div>
-        </div>
-      {% endfor %}
+    {% for toy in horse.toys.all %}
+    <div class="card">
+      <div class="card-content">
+        <span class="card-title">
+          A <span style="color: {{ toy.color }}">{{ toy.color }}</span> {{ toy.name }}
+        </span>
+      </div>
+      <div class="card-action">
+        <form action="{% url 'unassoc_toy' horse.id toy.id %}" method="post">
+          {% csrf_token %}
+          <button type="submit" class="btn">Remove</button>
+        </form>
+      </div>
+    </div>
+    {% endfor %}
     {% else %}
-      <h5>No Toys :(</h5>
+    <h5>No Toys :(</h5>
     {% endif %}
   </div>
   <!-- Available toys will come after this line -->
   <div class="col s6">
     <h3>Available Toys</h3>
     {% if toys.count %}
-      {% for toy in toys.all %}
-        <div class="card">
-          <div class="card-content">
-            <span class="card-title">
-              A <span style="color: {{ toy.color }}">{{ toy.color }}</span> {{ toy.name }}
-            </span>
-          </div>
-          <div class="card-action">
-            <form action="{% url 'assoc_toy' horse.id toy.id %}" method="post">
-                {% csrf_token %}
-              <button type="submit" class="btn">Add</button>
-            </form>
-          </div>
-        </div>
-      {% endfor %}
+    {% for toy in toys.all %}
+    <div class="card">
+      <div class="card-content">
+        <span class="card-title">
+          A <span style="color: {{ toy.color }}">{{ toy.color }}</span> {{ toy.name }}
+        </span>
+      </div>
+      <div class="card-action">
+        <form action="{% url 'assoc_toy' horse.id toy.id %}" method="post">
+          {% csrf_token %}
+          <button type="submit" class="btn">Add</button>
+        </form>
+      </div>
+    </div>
+    {% endfor %}
     {% else %}
-      <h5>{{horse.name}} Already Has All Toys Available</h5>
+    <h5>{{horse.name}} Already Has All Toys Available</h5>
     {% endif %}
   </div>
 </div>

@@ -7,8 +7,14 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 
-from .models import Horse, Toy
+import uuid
+import boto3
+
+from .models import Horse, Toy, Photo
 from .forms import FeedingForm
+
+S3_BASE_URL = 'https://s3-us-west-1.amazonaws.com/'
+BUCKET = 'horse_collector'
 
 # Create your views here.
 def signup(request):
@@ -110,9 +116,25 @@ class ToyDelete(LoginRequiredMixin, DeleteView):
   model = Toy
   success_url = '/toys/'
 
+@login_required
+def add_photo(request, horse_id):
+    # photo-file will be the "name" attribute on the <input type="file">
+    photo_file = request.FILES.get('photo-file', None)
+    if photo_file:
+        s3 = boto3.client('s3')
+        # need a unique "key" for S3 / needs image file extension too
+        key = uuid.uuid4().hex[:6] + photo_file.name[photo_file.name.rfind('.'):]
+        # just in case something goes wrong
+        try:
+            s3.upload_fileobj(photo_file, BUCKET, key)
+            # build the full url string
+            url = f"{S3_BASE_URL}{BUCKET}/{key}"
+            # we can assign to horse_id or horse (if you have a horse object)
+            photo = Photo(url=url, horse_id=horse_id)
+            photo.save()
+        except:
+            print('An error occurred uploading file to S3')
+    return redirect('detail', horse_id=horse_id)
 
-  # class HorseList(LoginRequiredMixin, ListView):
-#   model = Horse
 
-#   def get_queryset(self):
-#     return Horse.objects.filter(user=self.request.user)
+# aws_access_key_id=AKIA5DLCRQWJTF4CDOGL
