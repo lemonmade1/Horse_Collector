@@ -3,7 +3,6 @@ Breeding horses
 
 ## Screenshot(s):
 ![Screenshot1](/Users/terrelllemons/Desktop/horse_collector/horse_collector/wire_frames/horse_collector_1.png)
-![Screenshot2](/Users/terrelllemons/Desktop/horse_collector/horse_collector/wire_frames/horse_collector_2.png)
 ![Screenshot3](/Users/terrelllemons/Desktop/horse_collector/horse_collector/wire_frames/horse_collector_3.png)
 
 ## Description
@@ -24,3 +23,4 @@ _Materialize_
  
 ## CREATED BY: 
 Terrell Lemons
+[I'm an inline-style link with title](lemonsterrell43@gmail.com "my email contact")
